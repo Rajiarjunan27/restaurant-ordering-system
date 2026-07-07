@@ -2,20 +2,24 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from menu.models import FoodItem
-from .models import CartItem
 from .serializers import AddToCartSerializer
 from .serializers import UpdateCartItemSerializer
 from decimal import Decimal
 from django.utils import timezone
-from .models import Cart
 from .serializers import CartSerializer
+from .serializers import OrderHistorySerializer 
+from .serializers import OrderDetailsSerializer
+from .serializers import AdminOrderSerializer
+from .serializers import UpdateOrderStatusSerializer
+
 
 from .models import (
-
+    Cart,
+    CartItem,
     Order,
     OrderItem,
     DeliveryAddress,
-)
+)  
 
 from .serializers import PlaceOrderSerializer
 
@@ -190,3 +194,115 @@ class PlaceOrderView(APIView):
     },
     status=201
 )
+    
+class OrderHistoryView(APIView):
+     permission_classes = [IsAuthenticated]
+
+     def get(self, request):
+        orders = Order.objects.filter(
+            customer=request.user
+        ).order_by("-created_at")
+
+        serializer = OrderHistorySerializer(
+            orders,
+            many=True
+        )
+
+        return Response(serializer.data)
+class OrderDetailsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, order_id):
+        try:
+            order = Order.objects.get(
+                id=order_id,
+                customer=request.user
+            )
+
+            serializer = OrderDetailsSerializer(order)
+
+            return Response(serializer.data)
+
+        except Order.DoesNotExist:
+            return Response(
+                {"error": "Order not found."},
+                status=404
+            )
+class AdminOrderListView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        if not request.user.is_staff:
+            return Response(
+                {"error": "Permission denied"},
+                status=403
+            )
+
+        orders = Order.objects.all().order_by("-created_at")
+
+        serializer = AdminOrderSerializer(
+            orders,
+            many=True
+        )
+
+        return Response(serializer.data)
+    
+class AdminOrderDetailView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, order_id):
+
+        if not request.user.is_staff:
+            return Response(
+                {"error": "Permission denied"},
+                status=403
+            )
+
+        try:
+            order = Order.objects.get(id=order_id)
+
+            serializer = OrderDetailsSerializer(order)
+
+            return Response(serializer.data)
+
+        except Order.DoesNotExist:
+            return Response(
+                {"error": "Order not found"},
+                status=404
+            )
+        
+class UpdateOrderStatusView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request, order_id):
+
+        if not request.user.is_staff:
+            return Response(
+                {"error": "Permission denied"},
+                status=403
+            )
+
+        try:
+            order = Order.objects.get(id=order_id)
+
+            serializer = UpdateOrderStatusSerializer(
+                data=request.data
+            )
+
+            if serializer.is_valid():
+                order.order_status = serializer.validated_data["order_status"]
+                order.save()
+
+                return Response({
+                    "message": "Order status updated successfully.",
+                    "order_status": order.order_status
+                })
+
+            return Response(serializer.errors, status=400)
+
+        except Order.DoesNotExist:
+            return Response(
+                {"error": "Order not found"},
+                status=404
+            )
