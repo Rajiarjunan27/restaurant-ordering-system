@@ -1,0 +1,120 @@
+/* Full Screen */
+.splash-container {
+    background-color: #111;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center Content */
+.splash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    max-width: 380px;
+    width: 100%;
+}
+
+/* Logo */
+.splash-logo {
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+/* Restaurant Name */
+.restaurant-name {
+    color: #F4B400;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.restaurant-subtitle {
+    color: #F4B400;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Hero Image */
+.hero-image {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+/* Tagline */
+.tagline {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.tagline2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.order-btn,
+.menu-btn {
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-btn {
+    background-color: #F4B400;
+    color: black;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.order-btn:hover {
+    background-color: #d99800;
+    color: white;
+}
+
+.menu-btn {
+    border: 2px solid white;
+    color: white;
+}
+
+.menu-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .restaurant-name {
+        font-size: 26px;
+    }
+
+    .restaurant-subtitle {
+        font-size: 16px;
+    }
+
+    .hero-image {
+        max-width: 260px;
+    }
+
+    .order-btn,
+    .menu-btn {
+        height: 45px;
+        font-size: 16px;
+    }
+}
