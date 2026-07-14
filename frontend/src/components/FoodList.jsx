@@ -1,17 +1,23 @@
-import foods from "../data/foods";
 import FoodCard from "./FoodCard";
+function FoodList({ foods }) {
 
-function FoodList() {
-  return (
-    <div>
-      {foods.map((food) => (
-        <FoodCard
-          key={food.id}
-          food={food}
-        />
-      ))}
-    </div>
-  );
+    return (
+
+        <div>
+
+            {foods.map((food) => (
+
+                <FoodCard
+                    key={food.id}
+                    food={food}
+                />
+
+            ))}
+
+        </div>
+
+    );
+
 }
 
 export default FoodList;

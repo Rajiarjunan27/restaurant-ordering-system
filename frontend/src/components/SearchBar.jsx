@@ -1,21 +1,7 @@
 import { FaSearch } from "react-icons/fa";
-import { useState } from "react";
 import "../Styles/SearchBar.css";
 
-function SearchBar({ onSearch }) {
-
-    const [search, setSearch] = useState("");
-
-    const handleChange = (e) => {
-
-        const value = e.target.value;
-        setSearch(value);
-
-        if (onSearch) {
-            onSearch(value);
-        }
-
-    };
+function SearchBar({ searchText, setSearchText }) {
 
     return (
 
@@ -26,8 +12,8 @@ function SearchBar({ onSearch }) {
             <input
                 type="text"
                 placeholder="Search for food..."
-                value={search}
-                onChange={handleChange}
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
             />
 
         </div>

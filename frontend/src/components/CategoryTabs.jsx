@@ -2,45 +2,29 @@ import { useState } from "react";
 import { categories } from "../data/foods";
 import "../Styles/CategoryTabs.css";
 
-function CategoryTabs({ onCategoryChange }) {
-
-    const [selected, setSelected] = useState("All");
-
-    const handleClick = (category) => {
-
-        setSelected(category);
-
-        if (onCategoryChange) {
-            onCategoryChange(category);
-        }
-
-    };
+function CategoryTabs({ selectedCategory, setSelectedCategory }) {
 
     return (
 
         <div className="category-tabs">
 
-            {
+            {categories.map((category) => (
 
-                categories.map((category) => (
+                <button
+                    key={category}
+                    className={
+                        selectedCategory === category
+                            ? "category-btn active"
+                            : "category-btn"
+                    }
+                    onClick={() => setSelectedCategory(category)}
+                >
 
-                    <button
-                        key={category}
-                        className={
-                            selected === category
-                                ? "category-btn active"
-                                : "category-btn"
-                        }
-                        onClick={() => handleClick(category)}
-                    >
+                    {category}
 
-                        {category}
+                </button>
 
-                    </button>
-
-                ))
-
-            }
+            ))}
 
         </div>
 
