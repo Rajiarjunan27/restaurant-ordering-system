@@ -1,0 +1,128 @@
+.menu-header{
+
+    width:100%;
+    height:44px;
+
+    background:#2a160d;
+
+    display:flex;
+    align-items:center;
+
+    padding:0 10px;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+}
+
+/* Left */
+
+.menu-icon-btn{
+
+    width:30px;
+    height:30px;
+
+    border:none;
+    background:transparent;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    cursor:pointer;
+
+    flex-shrink:0;
+
+}
+
+.menu-icon-btn svg{
+
+    font-size:18px;
+
+}
+
+/* Center */
+
+.restaurant-info{
+
+    flex:1;
+
+    margin-left:6px;
+
+    line-height:1;
+
+}
+
+.restaurant-info h2{
+
+    color:#fff;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    margin:0;
+
+    letter-spacing:.3px;
+
+}
+
+.restaurant-info span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:#f4b247;
+
+    font-size:7px;
+
+    font-weight:600;
+
+    letter-spacing:1.2px;
+
+}
+
+/* Right */
+
+.cart-icon{
+
+    position:relative;
+
+}
+
+.cart-badge{
+
+    position:absolute;
+
+    top:-1px;
+
+    right:-2px;
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#ff8c00;
+
+    color:#fff;
+
+    font-size:7px;
+
+    font-weight:bold;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:1px solid #2a160d;
+
+}
+
+

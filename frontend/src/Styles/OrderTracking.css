@@ -1,0 +1,144 @@
+.tracking-page{
+
+    max-width:430px;
+    margin:auto;
+    background:white;
+    min-height:100vh;
+    padding:20px;
+
+}
+
+.tracking-header{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+.back-btn{
+
+    border:none;
+    background:none;
+    font-size:24px;
+    cursor:pointer;
+
+}
+
+.order-info{
+
+    margin-bottom:30px;
+
+}
+
+.order-info h3{
+
+    margin:8px 0;
+
+}
+
+.order-info p{
+
+    color:#666;
+
+}
+
+.timeline{
+
+    position:relative;
+    margin-left:12px;
+
+}
+
+.timeline::before{
+
+    content:"";
+    position:absolute;
+    left:16px;
+    top:10px;
+    width:2px;
+    height:88%;
+    background:#ddd;
+
+}
+
+.timeline-item{
+
+    display:flex;
+    gap:15px;
+    margin-bottom:30px;
+    position:relative;
+
+}
+
+.circle{
+
+    width:34px;
+    height:34px;
+    border-radius:50%;
+
+    border:2px solid #ccc;
+
+    background:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:1;
+
+}
+
+.completed .circle{
+
+    background:#4CAF50;
+    color:white;
+    border:none;
+
+}
+
+.active .circle{
+
+    background:#ff9800;
+    color:white;
+    border:none;
+
+}
+
+.timeline-item h4{
+
+    margin:0;
+
+}
+
+.timeline-item p{
+
+    color:#777;
+    margin-top:5px;
+    font-size:14px;
+
+}
+
+.tracking-footer{
+
+    display:flex;
+    justify-content:space-between;
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid #ddd;
+
+}
+
+.address{
+
+    margin-top:25px;
+
+}
+
+.address p{
+
+    color:#666;
+    line-height:1.7;
+
+}

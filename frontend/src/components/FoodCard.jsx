@@ -1,45 +1,55 @@
-import { Link } from "react-router-dom";
+import "../Styles/FoodCard.css";
+import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 
-function FoodCard({ food, onAddToCart }) {
-  return (
-    <div className="card shadow h-100">
+function FoodCard({ food }) {
 
-      <Link to={`/food/${food.id}`}>
-        <img
-          src={food.image}
-          className="card-img-top"
-          alt={food.name}
-        />
-      </Link>
+    const navigate = useNavigate();
 
-      <div className="card-body">
+    const { addToCart } = useContext(CartContext);
 
-        <Link
-          to={`/food/${food.id}`}
-          className="text-decoration-none text-dark"
+    return (
+
+        <div
+            className="food-card"
+            onClick={() => navigate(`/food/${food.id}`)}
         >
-          <h5>{food.name}</h5>
-        </Link>
 
-        <p className="text-muted">
-          {food.category}
-        </p>
+            <img
+                src={food.image}
+                alt={food.name}
+                className="food-image"
+            />
 
-        <h4 className="text-success">
-          ₹{food.price}
-        </h4>
+            <div className="food-info">
 
-        <button
-          className="btn btn-warning w-100"
-          onClick={() => onAddToCart(food)}
-        >
-          Add to Cart
-        </button>
+                <h5>{food.name}</h5>
 
-      </div>
+                <p>₹{food.price}</p>
 
-    </div>
-  );
+            </div>
+
+            <button
+
+                onClick={(e) => {
+
+                    e.stopPropagation(); // Don't open Food Details
+
+                    addToCart(food);
+
+                }}
+
+            >
+
+                +
+
+            </button>
+
+        </div>
+
+    );
+
 }
 
 export default FoodCard;

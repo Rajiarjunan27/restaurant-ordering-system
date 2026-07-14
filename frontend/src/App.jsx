@@ -14,16 +14,30 @@ import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import FoodDetails from "./pages/FoodDetails";
+import Checkout from "./pages/Checkout";
+import OrderSuccess from "./pages/OrderSuccess";
+import OrderTracking from "./pages/OrderTracking";
+
 
 function AppContent() {
   const location = useLocation();
 
   // Hide Navbar on these pages
-  const hideNavbar = ["/", "/login", "/register"];
+  const hideNavbar =
+  location.pathname === "/" ||
+  location.pathname === "/login" ||
+  location.pathname === "/register" ||
+  location.pathname === "/menu" ||
+   location.pathname === "/FoodDetails" ||
+  location.pathname === "/cart" ||
+  location.pathname === "/checkout" ||
+  location.pathname === "/order-success" ||
+  location.pathname === "/tracking" ||
+  location.pathname.startsWith("/food");
 
   return (
     <>
-      {!hideNavbar.includes(location.pathname) && <Navbar />}
+     {!hideNavbar && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Splash />} />
@@ -34,8 +48,14 @@ function AppContent() {
 
         <Route path="/food/:id" element={<FoodDetails />} />
 
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/Cart" element={<Cart />} />
+        
+        <Route path="/checkout" element={<Checkout />} /> 
 
+        <Route path="/order-success" element={<OrderSuccess />}/>
+
+        <Route path="/tracking" element={<OrderTracking />}/>
+        
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />

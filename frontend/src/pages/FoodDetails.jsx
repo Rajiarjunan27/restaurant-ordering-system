@@ -1,55 +1,124 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
-import { useParams } from "react-router-dom";
 import foods from "../data/foods";
+import "../Styles/FoodDetails.css";
 
 function FoodDetails() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const food = foods.find((item) => item.id === Number(id));
   const { addToCart } = useContext(CartContext);
 
+  const [quantity, setQuantity] = useState(1);
+
+  const food = foods.find((item) => item.id === Number(id));
 
   if (!food) {
-    return <h2 className="text-center mt-5">Food Not Found</h2>;
+    return <h2>Food Not Found</h2>;
   }
 
+  const increase = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrease = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
-    <div className="container mt-5">
+    <div className="food-details-page">
 
-      <div className="row">
+      {/* Header */}
 
-        <div className="col-md-6">
-          <img
-            src={food.image}
-            alt={food.name}
-            className="img-fluid rounded shadow"
-          />
+      <div className="food-header">
+
+        <button
+          className="back-btn"
+          onClick={() => navigate(-1)}
+        >
+          ←
+        </button>
+
+        <h3>Food Details</h3>
+
+      </div>
+
+      {/* Image */}
+
+      <div className="food-image-container">
+
+        <img
+          src={food.image}
+          alt={food.name}
+          className="food-image"
+        />
+
+      </div>
+
+      {/* Food Info */}
+
+      <div className="food-content">
+
+        <h2>{food.name}</h2>
+
+        <p className="food-category">
+          {food.category}
+        </p>
+
+        <h3 className="price">
+          ₹{food.price}
+        </h3>
+
+        <p className="description">
+          Delicious food prepared with fresh ingredients and authentic spices.
+        </p>
+
+        {/* Quantity */}
+
+        <div className="quantity-box">
+
+          <span>Quantity</span>
+
+          <div className="quantity-control">
+
+            <button onClick={decrease}>-</button>
+
+            <span>{quantity}</span>
+
+            <button onClick={increase}>+</button>
+
+          </div>
+
         </div>
 
-        <div className="col-md-6">
+        {/* Buttons */}
 
-          <h1>{food.name}</h1>
+        <div className="button-group">
 
-          <p className="text-muted">
-            {food.category}
-          </p>
+    <button
+        className="cart-btn"
+        onClick={() => {
+            addToCart(food);
+            navigate("/Cart");
+        }}
+    >
+        Add To Cart
+    </button>
 
-          <h2 className="text-success">
-            ₹{food.price}
-          </h2>
+    <button
+        className="buy-btn"
+        onClick={() => {
+            addToCart(food);
+            navigate("/Checkout");
+        }}
+    >
+        Buy Now
+    </button>
 
-          <p>
-            Authentic South Indian taste prepared with premium ingredients.
-          </p>
-
-            <button
-                    className="btn btn-warning"
-                    onClick={() => addToCart(food)}>
-                    Add To Cart
-            </button>
-
-        </div>
+</div>
 
       </div>
 

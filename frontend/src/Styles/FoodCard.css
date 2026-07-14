@@ -1,0 +1,42 @@
+.food-card{
+    display:flex;
+    align-items:center;
+    padding:12px 15px;
+    border-bottom:1px solid #ececec;
+}
+
+.food-card img{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+.food-info{
+    flex:1;
+    margin-left:15px;
+}
+
+.food-info h5{
+    margin:0;
+    font-size:17px;
+    font-weight:600;
+}
+
+.food-info p{
+    margin-top:8px;
+    color:#ff9800;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.food-card button{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:50%;
+    background:#ff9800;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+}

@@ -1,0 +1,220 @@
+.drawer-overlay{
+
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    z-index:998;
+
+}
+
+.drawer{
+
+    position:fixed;
+    top:0;
+    left:-280px;
+
+    width:260px;
+    height:100vh;
+
+    background:#fff;
+
+    transition:.3s;
+
+    z-index:999;
+
+    display:flex;
+    flex-direction:column;
+
+}
+
+.drawer.show{
+
+    left:0;
+
+}
+
+/* Header */
+
+.drawer-top{
+
+    background:#2b170f;
+
+    color:white;
+
+    padding:18px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+}
+
+.drawer-top h2{
+
+    margin:0;
+
+    font-size:20px;
+
+}
+
+.drawer-top p{
+
+    margin-top:4px;
+
+    color:#f7c76d;
+
+    font-size:11px;
+
+}
+
+.close-btn{
+
+    border:none;
+
+    background:none;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+}
+
+/* Profile */
+
+.drawer-profile{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    padding:18px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+.profile-circle{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#ff9800;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:24px;
+
+}
+
+.drawer-profile h4{
+
+    margin:0;
+
+}
+
+.drawer-profile span{
+
+    color:gray;
+
+    font-size:13px;
+
+}
+
+/* Menu */
+
+.drawer-list{
+
+    flex:1;
+
+    overflow-y:auto;
+
+}
+
+.drawer-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    padding:16px 20px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+.drawer-item:hover{
+
+    background:#fff5e9;
+
+    color:#ff9800;
+
+}
+
+.drawer-item svg{
+
+    font-size:18px;
+
+}
+
+/* Logout */
+
+.logout-button{
+
+    margin:15px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#ff9800;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+/* Footer */
+
+.version{
+
+    text-align:center;
+
+    color:#999;
+
+    font-size:12px;
+
+    padding-bottom:18px;
+
+}

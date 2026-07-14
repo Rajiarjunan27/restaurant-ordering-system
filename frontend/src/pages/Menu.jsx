@@ -1,36 +1,43 @@
-import { useContext } from "react";
-import foods from "../data/foods";
-import FoodCard from "../components/FoodCard";
-import { CartContext } from "../context/CartContext";
+import { useState } from "react";
+
+import MenuHeader from "../components/MenuHeader";
+import DrawerMenu from "../components/DrawerMenu";
+import SearchBar from "../components/SearchBar";
+import CategoryTabs from "../components/CategoryTabs";
+import FoodList from "../components/FoodList";
+import BottomNavigation from "../components/BottomNavigation";
+
+import "../Styles/Menu.css";
 
 function Menu() {
-  const { addToCart } = useContext(CartContext);
 
-  return (
-    <div className="container mt-4">
+    const [drawerOpen, setDrawerOpen] = useState(false);
 
-      <h2 className="text-center mb-4">
-        Our Menu
-      </h2>
+    return (
 
-      <div className="row">
+        <div className="menu-page">
 
-        {foods.map((food) => (
-          <div
-            className="col-lg-3 col-md-4 col-sm-6 mb-4"
-            key={food.id}
-          >
-            <FoodCard
-              food={food}
-              onAddToCart={addToCart}
+            <DrawerMenu
+                isOpen={drawerOpen}
+                onClose={() => setDrawerOpen(false)}
             />
-          </div>
-        ))}
 
-      </div>
+            <MenuHeader
+                onMenuClick={() => setDrawerOpen(true)}
+            />
 
-    </div>
-  );
+            <SearchBar />
+
+            <CategoryTabs />
+
+            <FoodList />
+
+            <BottomNavigation />
+
+        </div>
+
+    );
+
 }
 
 export default Menu;

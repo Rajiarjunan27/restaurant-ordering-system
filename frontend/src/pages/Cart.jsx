@@ -1,109 +1,129 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import CartItem from "../components/CartItem";
+import "../Styles/Cart.css";
 
 function Cart() {
-  const { cart, removeFromCart } = useContext(CartContext);
 
-  const total = cart.reduce(
-  (sum, item) => sum + item.price * item.quantity,
-  0
-  );
+    const navigate = useNavigate();
 
-  return (
-    <div className="container mt-4">
+    const {
+        cart,
+        subtotal,
+        deliveryCharge,
+        grandTotal,
+    } = useContext(CartContext);
 
-      <h2 className="text-center mb-4">
-        🛒 My Cart
-      </h2>
+    return (
 
-      {cart.length === 0 ? (
-        <h4 className="text-center text-muted">
-          Your cart is empty.
-        </h4>
-      ) : (
-        <>
-          <table className="table table-bordered">
+        <div className="cart-page">
 
-            <thead className="table-dark">
-              <tr>
-                <th>Image</th>
-                <th>Food</th>
-                <th>Price</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+            {/* Header */}
 
-            <tbody>
+            <div className="cart-header">
 
-              {cart.map((item, index) => (
+                <button
+                    className="back-btn"
+                    onClick={() => navigate(-1)}
+                >
+                    ←
+                </button>
 
-                <tr key={index}>
+                <h2>
+                    My Cart ({cart.length})
+                </h2>
 
-                  <td>
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      width="80"
-                    />
-                  </td>
+            </div>
 
-                  <td>{item.name}</td>
+            {/* Empty Cart */}
 
-                  <td>
+            {cart.length === 0 ? (
 
-                       <td>
+                <div className="empty-cart">
 
-                              ₹{item.price}
+                    <h3>Your Cart is Empty</h3>
 
-                              <br />
+                    <p>Add delicious food from our menu.</p>
 
-                              ×
-
-                              {item.quantity}
-
-                              =
-
-                              ₹{item.price * item.quantity}
-
-                        </td>
-
-                        <br />
-
-                        Qty : {item.quantity}
-
-                   </td>
-                  <td>
                     <button
-                      className="btn btn-danger btn-sm"
-                      onClick={() => removeFromCart(index)}
+                        className="checkout-btn"
+                        onClick={() => navigate("/menu")}
                     >
-                      Remove
+                        Browse Menu
                     </button>
-                  </td>
 
-                </tr>
+                </div>
 
-              ))}
+            ) : (
 
-            </tbody>
+                <>
 
-          </table>
+                    {/* Cart Items */}
 
-          <h3 className="text-end">
-            Total : ₹{total}
-          </h3>
+                    {cart.map((item) => (
 
-          <div className="text-end">
-            <button className="btn btn-success">
-              Proceed to Checkout
-            </button>
-          </div>
+                        <CartItem
+                            key={item.id}
+                            item={item}
+                        />
 
-        </>
-      )}
+                    ))}
 
-    </div>
-  );
+                    {/* Add More */}
+
+                    <div
+                        className="add-more"
+                        onClick={() => navigate("/menu")}
+                    >
+                        + Add More Items
+                    </div>
+
+                    {/* Summary */}
+
+                    <div className="summary">
+
+                        <div>
+
+                            <span>Subtotal</span>
+
+                            <span>₹{subtotal}</span>
+
+                        </div>
+
+                        <div>
+
+                            <span>Delivery Charge</span>
+
+                            <span>₹{deliveryCharge}</span>
+
+                        </div>
+
+                        <div className="total">
+
+                            <span>Total</span>
+
+                            <span>₹{grandTotal}</span>
+
+                        </div>
+
+                    </div>
+
+                    <button
+                        className="checkout-btn"
+                        onClick={() => navigate("/checkout")}
+                    >
+                        Proceed to Checkout
+                    </button>
+
+                </>
+
+            )}
+
+        </div>
+
+    );
+
 }
 
 export default Cart;
