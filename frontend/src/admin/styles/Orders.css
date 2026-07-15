@@ -1,0 +1,242 @@
+/* ==========================================
+   ORDERS LAYOUT
+========================================== */
+
+.orders-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #F7F8FC;
+}
+
+.orders-main {
+    flex: 1;
+    margin-left: 260px;
+    display: flex;
+    flex-direction: column;
+}
+
+.orders-content {
+    padding: 30px;
+}
+
+.orders-content h2 {
+    font-size: 32px;
+    color: #2D160A;
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   STATUS TABS
+========================================== */
+
+.orders-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 22px;
+    border: none;
+    background: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #555;
+    transition: .3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.tab:hover {
+    background: #FFE0B2;
+}
+
+.tab.active {
+    background: #FF9800;
+    color: #fff;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.orders-search {
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 18px rgba(0,0,0,.06);
+}
+
+.orders-search svg {
+    color: #888;
+    font-size: 16px;
+}
+
+.orders-search input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 15px;
+    background: transparent;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.orders-table {
+    background: white;
+    border-radius: 18px;
+    overflow-x: auto;
+    box-shadow: 0 5px 18px rgba(0,0,0,.08);
+}
+
+.orders-table table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.orders-table thead {
+    background: #FAFAFA;
+}
+
+.orders-table th {
+    padding: 18px;
+    text-align: left;
+    color: #555;
+    font-size: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.orders-table td {
+    padding: 18px;
+    border-bottom: 1px solid #f3f3f3;
+    color: #333;
+}
+
+.orders-table tr:hover {
+    background: #FFF8F1;
+}
+
+/* ==========================================
+   STATUS BADGES
+========================================== */
+
+.status {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status.new {
+    background: #E3F2FD;
+    color: #1976D2;
+}
+
+.status.accepted {
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.status.preparing {
+    background: #FFF3E0;
+    color: #EF6C00;
+}
+
+.status.completed {
+    background: #E8F5E9;
+    color: #388E3C;
+}
+
+.status.cancelled {
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+/* ==========================================
+   VIEW BUTTON
+========================================== */
+
+.view-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: #FF9800;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-btn:hover {
+    background: #F57C00;
+    transform: scale(1.05);
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width:1200px) {
+
+    .orders-content {
+        padding: 20px;
+    }
+
+}
+
+@media (max-width:992px) {
+
+    .orders-main {
+        margin-left: 220px;
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .orders-main {
+        margin-left: 70px;
+    }
+
+    .orders-content {
+        padding: 15px;
+    }
+
+    .orders-content h2 {
+        font-size: 28px;
+    }
+
+    .orders-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 8px;
+    }
+
+    .orders-tabs::-webkit-scrollbar {
+        display: none;
+    }
+
+}
+
+@media (max-width:576px) {
+
+    .orders-main {
+        margin-left: 70px;
+    }
+
+    .orders-search {
+        padding: 12px;
+    }
+
+}

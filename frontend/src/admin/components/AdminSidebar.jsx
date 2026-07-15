@@ -78,15 +78,6 @@ function AdminSidebar() {
           <span>Categories</span>
         </NavLink>
 
-        <NavLink
-          to="/admin/customers"
-          className={({ isActive }) =>
-            isActive ? "menu-item active" : "menu-item"
-          }
-        >
-          <FaUsers />
-          <span>Customers</span>
-        </NavLink>
 
         <NavLink
           to="/admin/reports"

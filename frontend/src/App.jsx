@@ -25,7 +25,12 @@ import ContactPage from "./pages/ContactPage";
 import Profile from "./pages/Profile";
 import AdminLogin from "./admin/pages/AdminLogin";
 import Dashboard from "./admin/pages/Dashboard";
-
+import Orders from "./admin/pages/Orders";
+import OrderDetails from "./admin/pages/OrderDetails";
+import Foods from "./admin/pages/Foods";
+import Categories from "./admin/pages/Categories";
+import Reports from "./admin/pages/Reports";
+import Settings from "./admin/pages/Settings";
 
 function AppContent() {
   const location = useLocation();
@@ -46,7 +51,9 @@ function AppContent() {
   location.pathname === "/order-success" ||
   location.pathname === "/tracking" ||
   location.pathname === "/admin/login" ||
-  location.pathname === "/admin/dashboard" ||
+  location.pathname === "/admin/foods" ||
+  location.pathname.startsWith("/admin")
+  location.pathname.startsWith("/admin/orders") ||
   location.pathname.startsWith("/food");
 
   return (
@@ -82,6 +89,14 @@ function AppContent() {
         <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/admin/orders" element={<Orders />} />
+        <Route path="/admin/orders/:id" element={<OrderDetails />} />
+        <Route path="/admin/foods" element={<Foods />}/>
+        <Route path="/admin/categories" element={<Categories />} />
+        <Route path="/admin/reports" element={<Reports />} />
+
+        <Route path="/admin/settings" element={<Settings />} /> 
+     
       </Routes>
     </>
   );

@@ -1,0 +1,206 @@
+/* ==========================================
+   LAYOUT
+========================================== */
+
+.categories-layout{
+    display:flex;
+    min-height:100vh;
+    background:#F5F6FA;
+}
+
+.categories-main{
+    flex:1;
+    margin-left:280px;
+    display:flex;
+    flex-direction:column;
+}
+
+.categories-content{
+    padding:30px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.categories-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.categories-header h2{
+    font-size:52px;
+    font-weight:700;
+    color:#2D160A;
+}
+
+.add-category-btn{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:#FF9800;
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    padding:14px 22px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.add-category-btn:hover{
+    background:#F57C00;
+}
+
+/* ==========================================
+   CARD
+========================================== */
+
+.categories-card{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    overflow-x:auto;
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.categories-card table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.categories-card thead{
+    background:#FAFAFA;
+}
+
+.categories-card th{
+    padding:18px;
+    text-align:left;
+    color:#444;
+    font-size:16px;
+}
+
+.categories-card td{
+    padding:18px;
+    border-top:1px solid #F2F2F2;
+    vertical-align:middle;
+}
+
+.categories-card tbody tr:hover{
+    background:#FFF8F1;
+    transition:.3s;
+}
+
+/* ==========================================
+   IMAGE
+========================================== */
+
+.category-image{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #FFE0B2;
+}
+
+/* ==========================================
+   STATUS
+========================================== */
+
+.category-status{
+    background:#E8F5E9;
+    color:#2E7D32;
+    padding:6px 16px;
+    border-radius:25px;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* ==========================================
+   ACTION BUTTONS
+========================================== */
+
+.edit-btn,
+.delete-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    transition:.3s;
+    margin-right:8px;
+}
+
+.edit-btn{
+    background:#E3F2FD;
+    color:#1976D2;
+}
+
+.edit-btn:hover{
+    background:#1976D2;
+    color:#fff;
+}
+
+.delete-btn{
+    background:#FDECEA;
+    color:#D32F2F;
+}
+
+.delete-btn:hover{
+    background:#D32F2F;
+    color:#fff;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px){
+
+    .categories-main{
+        margin-left:220px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .categories-main{
+        margin-left:80px;
+    }
+
+    .categories-content{
+        padding:15px;
+    }
+
+    .categories-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .categories-header h2{
+        font-size:34px;
+    }
+
+    .categories-card table{
+        min-width:850px;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .add-category-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+}

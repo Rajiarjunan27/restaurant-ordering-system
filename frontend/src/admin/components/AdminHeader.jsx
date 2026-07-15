@@ -7,76 +7,36 @@ import {
 
 import "../styles/Header.css";
 
-function AdminHeader() {
+function AdminHeader({
 
-  const today = new Date().toISOString().split("T")[0];
+    title="Dashboard",
+    subtitle="Welcome back, Admin 👋"
 
-  const [selectedDate, setSelectedDate] = useState(today);
+}){
 
-  return (
+    return(
 
-    <header className="admin-header">
+        <div className="admin-header">
 
-      {/* Left */}
+            <div>
 
-      <div className="header-left">
+                <h1>{title}</h1>
 
-        <h2>Dashboard</h2>
+                <p>{subtitle}</p>
 
-        <p>Welcome back, Admin 👋</p>
+            </div>
 
-      </div>
+            <div className="header-right">
 
-      {/* Right */}
+                {/* Date picker / profile / notifications later */}
 
-      <div className="header-right">
-
-        {/* Date */}
-
-        <div className="date-picker">
-
-          <FaCalendarAlt className="calendar-icon" />
-
-          <input
-            type="date"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
+            </div>
 
         </div>
 
-        {/* Notification */}
-
-        <button className="notification-btn">
-
-          <FaBell />
-
-          <span className="notification-dot"></span>
-
-        </button>
-
-        {/* Profile */}
-
-        <div className="admin-profile">
-
-          <FaUserCircle />
-
-          <div>
-
-            <h4>Admin</h4>
-
-            <p>Restaurant Admin</p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </header>
-
-  );
+    );
 
 }
 
 export default AdminHeader;
+
