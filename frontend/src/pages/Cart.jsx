@@ -1,7 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
+
 import { CartContext } from "../context/CartContext";
 import CartItem from "../components/CartItem";
+
 import "../Styles/Cart.css";
 
 function Cart() {
@@ -24,10 +27,10 @@ function Cart() {
             <div className="cart-header">
 
                 <button
-                    className="back-btn"
+                    className="cart-back-btn"
                     onClick={() => navigate(-1)}
                 >
-                    ←
+                    <FaArrowLeft />
                 </button>
 
                 <h2>
@@ -35,8 +38,6 @@ function Cart() {
                 </h2>
 
             </div>
-
-            {/* Empty Cart */}
 
             {cart.length === 0 ? (
 
@@ -59,8 +60,6 @@ function Cart() {
 
                 <>
 
-                    {/* Cart Items */}
-
                     {cart.map((item) => (
 
                         <CartItem
@@ -70,8 +69,6 @@ function Cart() {
 
                     ))}
 
-                    {/* Add More */}
-
                     <div
                         className="add-more"
                         onClick={() => navigate("/menu")}
@@ -79,32 +76,21 @@ function Cart() {
                         + Add More Items
                     </div>
 
-                    {/* Summary */}
-
                     <div className="summary">
 
                         <div>
-
                             <span>Subtotal</span>
-
                             <span>₹{subtotal}</span>
-
                         </div>
 
                         <div>
-
                             <span>Delivery Charge</span>
-
                             <span>₹{deliveryCharge}</span>
-
                         </div>
 
                         <div className="total">
-
                             <span>Total</span>
-
                             <span>₹{grandTotal}</span>
-
                         </div>
 
                     </div>

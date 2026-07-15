@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 
 import Splash from "./pages/Splash";
 import Home from "./pages/Home";
-import Menu from "./pages/menu";
+import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -34,6 +34,7 @@ function AppContent() {
   location.pathname === "/" ||
   location.pathname === "/login" ||
   location.pathname === "/register" ||
+  location.pathname === "/home" ||
   location.pathname === "/menu" ||
   location.pathname === "/about" ||      // Add this
   location.pathname === "/contact" ||

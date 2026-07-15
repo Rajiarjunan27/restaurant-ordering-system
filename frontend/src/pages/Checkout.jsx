@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 import { CartContext } from "../context/CartContext";
 import "../Styles/Checkout.css";
 
@@ -25,10 +26,10 @@ function Checkout() {
             <div className="checkout-header">
 
                 <button
-                    className="back-btn"
+                    className="checkout-back-btn"
                     onClick={() => navigate(-1)}
                 >
-                    ←
+                    <FaArrowLeft />
                 </button>
 
                 <h2>Checkout</h2>
@@ -127,27 +128,18 @@ function Checkout() {
             <div className="summary">
 
                 <div>
-
                     <span>Subtotal</span>
-
                     <span>₹{subtotal}</span>
-
                 </div>
 
                 <div>
-
                     <span>Delivery Charge</span>
-
                     <span>₹{deliveryCharge}</span>
-
                 </div>
 
                 <div className="total">
-
                     <span>Total Amount</span>
-
                     <span>₹{grandTotal}</span>
-
                 </div>
 
             </div>

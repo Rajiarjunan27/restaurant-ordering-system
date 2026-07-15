@@ -7,9 +7,13 @@ function Login() {
 
       <div className="login-card">
 
-        <Link to="/" className="back-btn">
-          &#8592;
-        </Link>
+        <button
+    className="login-back-btn"
+    onClick={() => navigate(-1)}
+    aria-label="Go Back"
+>
+    &#8592;
+</button>
 
         <h2>Welcome Back!</h2>
         <p className="subtitle">Login to continue</p>

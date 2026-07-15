@@ -16,10 +16,41 @@
     box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-.back-btn{
-    text-decoration:none;
-    color:black;
-    font-size:24px;
+
+/* Back Button */
+
+.login-back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:#3B1F0F;
+    color:#fff;
+
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+    z-index:1000;
+
+    transition:.3s;
+}
+
+.login-back-btn:hover{
+    background:#FF9800;
+    color:#fff;
 }
 
 .login-card h2{

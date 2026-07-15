@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import foods from "../data/foods";
 
 import MenuHeader from "../components/MenuHeader";
@@ -11,6 +12,7 @@ import BottomNavigation from "../components/BottomNavigation";
 import "../Styles/Menu.css";
 
 function Menu() {
+    const location = useLocation();
 
     // Drawer
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -20,6 +22,13 @@ function Menu() {
 
     // Category
     const [selectedCategory, setSelectedCategory] = useState("All");
+    useEffect(() => {
+    if (location.state?.category) {
+        setSelectedCategory(location.state.category);
+    } else {
+        setSelectedCategory("All");
+    }
+}, [location]);
 
     // Filter Foods
     const filteredFoods = foods.filter((food) => {

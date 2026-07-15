@@ -1,30 +1,85 @@
-import { Link } from "react-router-dom";
-import hero from "../assets/Hero.jpg";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import DrawerMenu from "../components/DrawerMenu";
+import BottomNavigation from "../components/BottomNavigation";
+import { categories } from "../data/foods";
+import "../Styles/Home.css";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
-    <div className="container mt-4">
+    <div className="home-page">
 
-      <div className="text-center">
+      {/* Header */}
 
-        <img
-          src={hero}
-          alt="Biryani"
-          className="img-fluid rounded"
-          style={{ maxWidth: "500px" }}
-        />
+      <header className="home-header">
 
-        <h2 className="mt-4">
-          Welcome to Velluthukattu Unlimited Biryani
-        </h2>
+        <DrawerMenu />
 
-        <p>Authentic Taste, Unlimited Happiness</p>
+        <div className="logo-section">
+          <h2>VELLUTHUKATTU</h2>
+          <span>Unlimited Biriyani</span>
+        </div>
 
-        <Link to="/menu" className="btn btn-warning">
-          Explore Menu
-        </Link>
+      </header>
+
+      {/* Welcome */}
+
+      <div className="welcome-card">
+
+        <h2>Welcome 👋</h2>
+
+        <p>Authentic Taste</p>
+
+        <span>Unlimited Happiness</span>
 
       </div>
+
+      {/* Explore Menu */}
+
+      <div
+        className="explore-card"
+        onClick={() => navigate("/menu")}
+      >
+
+        <h3>🍛 Explore Menu</h3>
+
+        <p>View all delicious dishes</p>
+
+      </div>
+
+      {/* Categories */}
+
+      <div className="section">
+
+        <h3>Browse Categories</h3>
+
+        <div className="category-grid">
+
+  {categories
+    .filter((category) => category !== "All")
+    .map((category) => (
+
+      <button
+        key={category}
+        className="category-btn"
+        onClick={() =>
+          navigate("/menu", {
+            state: { category },
+          })
+        }
+      >
+        {category}
+      </button>
+
+    ))}
+
+</div>
+
+      </div>
+
+      <BottomNavigation />
 
     </div>
   );

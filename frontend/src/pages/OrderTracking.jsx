@@ -14,10 +14,10 @@ function OrderTracking() {
             <div className="tracking-header">
 
                 <button
-                    className="back-btn"
-                    onClick={() => navigate(-1)}
+                     className="tracking-back-btn"
+                     onClick={() => navigate(-1)}
                 >
-                    ←
+                 &#8592;
                 </button>
 
                 <h2>Order Details</h2>

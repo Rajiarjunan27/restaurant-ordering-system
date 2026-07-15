@@ -10,7 +10,7 @@ function BottomNavigation() {
 
       <div
         className={location.pathname === "/home" ? "active" : ""}
-        onClick={() => navigate("/menu")}
+        onClick={() => navigate("/home")}
       >
         🏠
         <p>Home</p>

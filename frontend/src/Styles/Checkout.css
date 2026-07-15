@@ -1,28 +1,63 @@
 .checkout-page{
-    max-width:430px;
+    max-width:420px;
     margin:auto;
     min-height:100vh;
-    background:#ffffff;
+    background:#fff;
     padding:20px;
 }
 
-.checkout-header{
-    display:flex;
-    align-items:center;
-    gap:15px;
-    margin-bottom:25px;
-}
+/* ================= HEADER ================= */
 
-.back-btn{
-    background:none;
-    border:none;
-    font-size:24px;
-    cursor:pointer;
+.checkout-header{
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:60px;
+    margin-bottom:25px;
+    border-bottom:1px solid #eee;
 }
 
 .checkout-header h2{
     margin:0;
+    font-size:30px;
+    font-weight:700;
+    color:#3B1F0F;
 }
+
+/* ================= BACK BUTTON ================= */
+
+.checkout-back-btn{
+    position:absolute;
+    left:0;
+
+    width:42px;
+    height:42px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#3B1F0F;
+    color:#fff;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+.checkout-back-btn svg{
+    color:#fff;
+    font-size:18px;
+}
+
+.checkout-back-btn:hover{
+    background:#FF9800;
+}
+
+/* ================= FORM ================= */
 
 .checkout-page h4{
     margin-top:24px;
@@ -32,7 +67,6 @@
 
 .checkout-page input,
 .checkout-page textarea{
-
     width:100%;
     padding:12px;
     border:1px solid #ddd;
@@ -41,126 +75,114 @@
     margin-bottom:12px;
     outline:none;
     box-sizing:border-box;
-
 }
 
 .checkout-page input:focus,
 .checkout-page textarea:focus{
-
     border-color:#ff9800;
-
 }
 
-.order-type{
+/* ================= ORDER TYPE ================= */
 
+.order-type{
     display:flex;
     justify-content:space-between;
     gap:10px;
-
 }
 
 .order-type button{
-
     flex:1;
     height:42px;
     border:1px solid #ddd;
-    background:white;
+    background:#fff;
     border-radius:10px;
     cursor:pointer;
     font-size:13px;
-
+    transition:.3s;
 }
 
 .order-type button.active{
-
     background:#ff9800;
-    color:white;
+    color:#fff;
     border:none;
-
 }
 
-.radio-option{
+/* ================= RADIO ================= */
 
+/* ================= RADIO ================= */
+
+.radio-option{
     display:flex;
     align-items:center;
     gap:10px;
     margin-bottom:15px;
-    font-size:15px;
-
+    font-size:16px;
+    cursor:pointer;
 }
 
-.radio-option input{
-
+.radio-option input[type="radio"]{
     width:18px;
     height:18px;
-
+    margin:0;
+    transform:translateY(2px);
+    cursor:pointer;
 }
+/* ================= SUMMARY ================= */
 
 .summary{
-
     margin-top:10px;
     background:#fafafa;
     border-radius:12px;
     padding:18px;
-
 }
 
 .summary div{
-
     display:flex;
     justify-content:space-between;
     margin-bottom:12px;
-
 }
 
 .total{
-
     border-top:1px solid #ddd;
     padding-top:15px;
     font-size:18px;
     font-weight:bold;
-
 }
 
-.place-order-btn{
+/* ================= BUTTON ================= */
 
+.place-order-btn{
     width:100%;
     height:50px;
     margin-top:25px;
     border:none;
     border-radius:10px;
     background:#ff9800;
-    color:white;
+    color:#fff;
     font-size:17px;
     font-weight:bold;
     cursor:pointer;
-
+    transition:.3s;
 }
 
 .place-order-btn:hover{
-
     background:#f57c00;
-
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:480px){
 
-.checkout-page{
+    .checkout-page{
+        padding:16px;
+    }
 
-    padding:16px;
+    .order-type{
+        gap:6px;
+    }
 
-}
-
-.order-type{
-
-    gap:6px;
-
-}
-
-.order-type button{
-
-    font-size:12px;
-
-}
+    .order-type button{
+        font-size:12px;
+    }
 
 }

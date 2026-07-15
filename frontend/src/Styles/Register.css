@@ -16,10 +16,37 @@
     box-shadow:0 5px 15px rgba(0,0,0,.1);
 }
 
-.back-btn{
-    text-decoration:none;
-    color:black;
-    font-size:24px;
+.register-back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border:none;
+    border-radius:50%;
+
+    background:#3B1F0F;
+    color:#fff;
+
+    font-size:22px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.15);
+    transition:.3s;
+    z-index:1000;
+}
+
+.register-back-btn:hover{
+    background:#FF9800;
+    color:#fff;
 }
 
 .register-card h2{
