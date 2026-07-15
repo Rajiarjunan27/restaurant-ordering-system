@@ -23,7 +23,8 @@ import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 
 import Profile from "./pages/Profile";
-
+import AdminLogin from "./admin/pages/AdminLogin";
+import Dashboard from "./admin/pages/Dashboard";
 
 
 function AppContent() {
@@ -44,6 +45,8 @@ function AppContent() {
   location.pathname === "/checkout" ||
   location.pathname === "/order-success" ||
   location.pathname === "/tracking" ||
+  location.pathname === "/admin/login" ||
+  location.pathname === "/admin/dashboard" ||
   location.pathname.startsWith("/food");
 
   return (
@@ -75,6 +78,10 @@ function AppContent() {
         <Route path="/login" element={<Login />} />
 
         <Route path="/register" element={<Register />} />
+
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        <Route path="/admin/dashboard" element={<Dashboard />} />
       </Routes>
     </>
   );

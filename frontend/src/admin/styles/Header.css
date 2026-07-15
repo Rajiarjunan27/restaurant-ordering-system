@@ -1,0 +1,201 @@
+/* ===========================
+   ADMIN HEADER
+=========================== */
+
+.admin-header{
+
+    height:90px;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 35px;
+
+    border-bottom:1px solid #eee;
+
+}
+
+/* Left */
+
+.header-left h2{
+
+    font-size:30px;
+
+    color:#2D160A;
+
+    margin-bottom:5px;
+
+}
+
+.header-left p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/* Right */
+
+.header-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/* Date Picker */
+
+.date-picker{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:#f7f7f7;
+
+    padding:10px 15px;
+
+    border-radius:10px;
+
+}
+
+.calendar-icon{
+
+    color:#FF9800;
+
+}
+
+.date-picker input{
+
+    border:none;
+
+    background:transparent;
+
+    outline:none;
+
+    font-size:14px;
+
+}
+
+/* Notification */
+
+.notification-btn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#f7f7f7;
+
+    position:relative;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+}
+
+.notification-btn:hover{
+
+    background:#FF9800;
+
+    color:white;
+
+}
+
+.notification-dot{
+
+    position:absolute;
+
+    top:10px;
+
+    right:12px;
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:red;
+
+}
+
+/* Profile */
+
+.admin-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.admin-profile svg{
+
+    font-size:42px;
+
+    color:#2D160A;
+
+}
+
+.admin-profile h4{
+
+    margin:0;
+
+    font-size:15px;
+
+}
+
+.admin-profile p{
+
+    margin-top:4px;
+
+    color:#888;
+
+    font-size:12px;
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.admin-header{
+
+    padding:0 20px;
+
+}
+
+.header-left p{
+
+    display:none;
+
+}
+
+.admin-profile div{
+
+    display:none;
+
+}
+
+}

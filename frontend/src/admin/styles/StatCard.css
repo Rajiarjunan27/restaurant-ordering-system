@@ -1,0 +1,83 @@
+/* ===========================
+   STAT CARD
+=========================== */
+
+.stat-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.stat-card:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+}
+
+.stat-icon{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:28px;
+
+}
+
+.stat-content{
+
+    flex:1;
+
+}
+
+.stat-content h4{
+
+    color:#777;
+
+    font-size:15px;
+
+    margin-bottom:8px;
+
+    font-weight:500;
+
+}
+
+.stat-content h2{
+
+    color:#2D160A;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin:0;
+
+}

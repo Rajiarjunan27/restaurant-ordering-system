@@ -1,0 +1,135 @@
+/* ===========================
+   REVENUE CARD
+=========================== */
+
+.revenue-card{
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+/* Header */
+
+.revenue-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.revenue-header h3{
+
+    font-size:22px;
+
+    color:#2D160A;
+
+    margin-bottom:5px;
+
+}
+
+.revenue-header p{
+
+    color:#777;
+
+    font-size:14px;
+
+}
+
+/* Growth */
+
+.growth{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    padding:8px 14px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+/* Revenue */
+
+.revenue-body h1{
+
+    font-size:42px;
+
+    color:#FF9800;
+
+    margin-bottom:8px;
+
+}
+
+.revenue-body p{
+
+    color:#888;
+
+    font-size:15px;
+
+}
+
+/* Footer */
+
+.revenue-footer{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    border-top:1px solid #eee;
+
+    padding-top:20px;
+
+}
+
+.revenue-footer div{
+
+    text-align:center;
+
+}
+
+.revenue-footer h4{
+
+    color:#777;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+.revenue-footer span{
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#2D160A;
+
+}

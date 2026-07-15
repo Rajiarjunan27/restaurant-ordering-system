@@ -1,0 +1,201 @@
+/* ==========================================
+   DASHBOARD LAYOUT
+========================================== */
+
+.dashboard-layout{
+    display:flex;
+    min-height:100vh;
+    background:#F5F6FA;
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.dashboard-main{
+    flex:1;
+    margin-left:260px;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+}
+
+/* ==========================================
+   PAGE CONTENT
+========================================== */
+
+.dashboard-content{
+    padding:30px;
+}
+
+/* ==========================================
+   STATISTICS GRID
+========================================== */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+    margin:30px;
+}
+
+/* ==========================================
+   REVENUE + CHART
+========================================== */
+
+.dashboard-row{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    margin:0 30px 30px;
+}
+
+.revenue-section{
+    width:100%;
+}
+
+.chart-section{
+    width:100%;
+}
+
+/* ==========================================
+   RECENT ORDERS
+========================================== */
+
+.orders-section{
+    margin:0 30px 30px;
+}
+
+/* ==========================================
+   CARD EFFECT
+========================================== */
+
+.revenue-section,
+.chart-section,
+.orders-section{
+
+    animation:fadeUp .5s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   TABLE
+========================================== */
+
+.orders-section table{
+
+    width:100%;
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:1200px){
+
+.stats-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.dashboard-row{
+
+    grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:992px){
+
+.dashboard-main{
+
+    margin-left:220px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.dashboard-main{
+
+    margin-left:80px;
+
+}
+
+.dashboard-content{
+
+    padding:20px;
+
+}
+
+.stats-grid{
+
+    grid-template-columns:1fr;
+
+    margin:20px;
+
+}
+
+.dashboard-row{
+
+    margin:0 20px 20px;
+
+}
+
+.orders-section{
+
+    margin:0 20px 20px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.dashboard-main{
+
+    margin-left:0;
+
+}
+
+.stats-grid{
+
+    margin:15px;
+
+}
+
+.dashboard-row{
+
+    margin:0 15px 15px;
+
+}
+
+.orders-section{
+
+    margin:0 15px 15px;
+
+}
+
+}
