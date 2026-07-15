@@ -9,7 +9,7 @@ import Navbar from "./components/Navbar";
 
 import Splash from "./pages/Splash";
 import Home from "./pages/Home";
-import Menu from "./pages/Menu";
+import Menu from "./pages/menu";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -17,6 +17,13 @@ import FoodDetails from "./pages/FoodDetails";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
 import OrderTracking from "./pages/OrderTracking";
+
+
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+
+import Profile from "./pages/Profile";
+
 
 
 function AppContent() {
@@ -28,6 +35,9 @@ function AppContent() {
   location.pathname === "/login" ||
   location.pathname === "/register" ||
   location.pathname === "/menu" ||
+  location.pathname === "/about" ||      // Add this
+  location.pathname === "/contact" ||
+   location.pathname === "/profile" ||    // Add this
    location.pathname === "/FoodDetails" ||
   location.pathname === "/cart" ||
   location.pathname === "/checkout" ||
@@ -43,13 +53,18 @@ function AppContent() {
         <Route path="/" element={<Splash />} />
 
         <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<AboutPage />} />
+        
+        <Route path="/contact" element={<ContactPage />} />
+
 
         <Route path="/menu" element={<Menu />} />
 
         <Route path="/food/:id" element={<FoodDetails />} />
 
-        <Route path="/Cart" element={<Cart />} />
-        
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />} />
+
         <Route path="/checkout" element={<Checkout />} /> 
 
         <Route path="/order-success" element={<OrderSuccess />}/>
