@@ -13,6 +13,10 @@ import Menu from "./pages/Menu";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import ForgotPassword from "./pages/ForgotPassword";
+
+
+
 import FoodDetails from "./pages/FoodDetails";
 import Checkout from "./pages/Checkout";
 import OrderSuccess from "./pages/OrderSuccess";
@@ -40,6 +44,7 @@ function AppContent() {
   location.pathname === "/" ||
   location.pathname === "/login" ||
   location.pathname === "/register" ||
+  location.pathname === "/forgot-password" ||
   location.pathname === "/home" ||
   location.pathname === "/menu" ||
   location.pathname === "/about" ||      // Add this
@@ -68,6 +73,7 @@ function AppContent() {
         
         <Route path="/contact" element={<ContactPage />} />
 
+        <Route path="/forgot-password" element={<ForgotPassword />} />      
 
         <Route path="/menu" element={<Menu />} />
 

@@ -1,7 +1,7 @@
 import AdminSidebar from "../components/AdminSidebar";
 import AdminHeader from "../components/AdminHeader";
 
-import "./AdminLayout.css";
+import "../styles/AdminLayout.css";
 
 function AdminLayout({
 

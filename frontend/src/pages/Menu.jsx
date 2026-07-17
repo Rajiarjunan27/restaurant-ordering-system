@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import foods from "../data/foods";
+import api from "../services/api";
 
 import MenuHeader from "../components/MenuHeader";
 import DrawerMenu from "../components/DrawerMenu";
@@ -13,6 +13,8 @@ import "../Styles/Menu.css";
 
 function Menu() {
     const location = useLocation();
+    const [foods, setFoods] = useState([]);
+const [loading, setLoading] = useState(true);
 
     // Drawer
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -29,6 +31,23 @@ function Menu() {
         setSelectedCategory("All");
     }
 }, [location]);
+useEffect(() => {
+    const fetchFoods = async () => {
+        try {
+            const response = await api.get("/food-items/");
+            setFoods(response.data);
+        } catch (error) {
+            console.error(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchFoods();
+}, []);
+if (loading) {
+    return <h2 style={{ textAlign: "center" }}>Loading...</h2>;
+}
 
     // Filter Foods
     const filteredFoods = foods.filter((food) => {
