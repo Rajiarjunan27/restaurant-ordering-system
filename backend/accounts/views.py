@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from .models import User
 from .serializers import RegisterSerializer, ProfileSerializer
+from django.contrib.auth.hashers import make_password
 
 
 class RegisterView(generics.CreateAPIView):
@@ -33,3 +34,34 @@ class ProfileView(APIView):
     def get(self, request):
         serializer = ProfileSerializer(request.user)
         return Response(serializer.data)
+    
+
+
+class ForgotPasswordView(APIView):
+
+    def post(self, request):
+
+        username = request.data.get("username")
+        password = request.data.get("password")
+
+        try:
+            user = User.objects.get(username=username)
+
+            user.set_password(password)
+            user.save()
+
+            return Response(
+                {
+                    "message": "Password updated successfully."
+                },
+                status=status.HTTP_200_OK
+            )
+
+        except User.DoesNotExist:
+
+            return Response(
+                {
+                    "error": "User not found."
+                },
+                status=status.HTTP_404_NOT_FOUND
+            )
